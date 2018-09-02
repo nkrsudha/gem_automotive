@@ -1,0 +1,82 @@
+<%= form_for(sale) do |f| %>
+  <% if sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+      <% sale.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chasis_no %>
+    <%= f.text_field :chasis_no %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bike_id %>
+    <%= f.text_field :bike_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_id %>
+    <%= f.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_type_id %>
+    <%= f.text_field :payment_type_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sales_type %>
+    <%= f.text_field :sales_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dsicount %>
+    <%= f.text_field :dsicount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :received_amount %>
+    <%= f.text_field :received_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diffrence %>
+    <%= f.text_field :diffrence %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_location %>
+    <%= f.text_field :delivery_location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :show_room_id %>
+    <%= f.text_field :show_room_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :executive_name %>
+    <%= f.text_field :executive_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :financed_by %>
+    <%= f.text_field :financed_by %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

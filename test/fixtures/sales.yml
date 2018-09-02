@@ -1,0 +1,53 @@
+# == Schema Information
+#
+# Table name: sales
+#
+#  id                :integer          not null, primary key
+#  chasis_no         :string
+#  bike_id           :integer
+#  customer_id       :integer
+#  payment_type_id   :integer
+#  sales_type        :integer
+#  dsicount          :float
+#  received_amount   :float
+#  diffrence         :string
+#  delivery_location :string
+#  show_room_id      :integer
+#  executive_name    :string
+#  financed_by       :string
+#  notes             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chasis_no: MyString
+  bike: one
+  customer: one
+  payment_type: one
+  sales_type: 
+  dsicount: 1.5
+  received_amount: 1.5
+  diffrence: MyString
+  delivery_location: MyString
+  show_room: one
+  executive_name: MyString
+  financed_by: MyString
+  notes: MyString
+
+two:
+  chasis_no: MyString
+  bike: two
+  customer: two
+  payment_type: two
+  sales_type: 
+  dsicount: 1.5
+  received_amount: 1.5
+  diffrence: MyString
+  delivery_location: MyString
+  show_room: two
+  executive_name: MyString
+  financed_by: MyString
+  notes: MyString

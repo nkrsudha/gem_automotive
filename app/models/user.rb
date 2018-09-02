@@ -19,6 +19,7 @@
 #  active                 :boolean
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  show_room_id           :decimal(, )
 #
 
 class User < ApplicationRecord
@@ -32,7 +33,10 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   validates :mobile, presence: true
+   validates :show_room_id, presence: true
   validates :email, uniqueness: true
+
+  belongs_to :show_room
 
 
    def is_admin?

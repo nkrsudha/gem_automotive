@@ -19,6 +19,7 @@
 #  active                 :boolean
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  show_room_id           :decimal(, )
 #
 
 require 'test_helper'

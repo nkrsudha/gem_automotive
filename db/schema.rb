@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180902030613) do
+ActiveRecord::Schema.define(version: 20180902071635) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -57,6 +57,60 @@ ActiveRecord::Schema.define(version: 20180902030613) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mobile"
+    t.integer  "show_room_id"
+    t.string   "id_type"
+    t.string   "id_number"
+    t.string   "city"
+    t.text     "address"
+    t.integer  "pin"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["show_room_id"], name: "index_customers_on_show_room_id"
+  end
+
+  create_table "payment_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.string   "chasis_no"
+    t.integer  "bike_id"
+    t.integer  "customer_id"
+    t.integer  "payment_type_id"
+    t.integer  "sales_type"
+    t.float    "dsicount"
+    t.float    "received_amount"
+    t.string   "diffrence"
+    t.string   "delivery_location"
+    t.integer  "show_room_id"
+    t.integer  "user_id"
+    t.string   "executive_name"
+    t.string   "financed_by"
+    t.string   "notes"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["bike_id"], name: "index_sales_on_bike_id"
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["payment_type_id"], name: "index_sales_on_payment_type_id"
+    t.index ["show_room_id"], name: "index_sales_on_show_room_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "show_rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "taxes", force: :cascade do |t|
     t.float    "cgst"
     t.float    "sgst"
@@ -81,6 +135,7 @@ ActiveRecord::Schema.define(version: 20180902030613) do
     t.boolean  "active"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.decimal  "show_room_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

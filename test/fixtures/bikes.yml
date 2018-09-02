@@ -4,7 +4,6 @@
 #
 #  id            :integer          not null, primary key
 #  model         :string
-#  chase_no      :string
 #  price_wo_tax  :float
 #  road_tax      :float
 #  insurance     :float

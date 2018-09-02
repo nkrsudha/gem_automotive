@@ -1,4 +1,5 @@
 ActiveAdmin.register Tax do
+   menu parent: 'Settings', label: 'Tax'
    permit_params :cgst,:sgst
 
   index do

@@ -1,0 +1,2 @@
+json.extract! sale, :id, :chasis_no, :bike_id, :customer_id, :payment_type_id, :sales_type, :dsicount, :received_amount, :diffrence, :delivery_location, :show_room_id, :executive_name, :financed_by, :notes, :created_at, :updated_at
+json.url sale_url(sale, format: :json)
