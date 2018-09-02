@@ -130,6 +130,8 @@ GEM
       jquery-rails
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    formadmin (0.2.1)
+      activeadmin
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.2)
   devise
+  formadmin
   gentelella-rails
   inherited_resources (~> 1.7)
   jbuilder (~> 2.5)

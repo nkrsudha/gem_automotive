@@ -1,0 +1,59 @@
+# == Schema Information
+#
+# Table name: bikes
+#
+#  id            :integer          not null, primary key
+#  model         :string
+#  chase_no      :string
+#  price_wo_tax  :float
+#  road_tax      :float
+#  insurance     :float
+#  registration  :float
+#  ext_warranty  :float
+#  accessories   :float
+#  tefflon       :float
+#  hypothecation :float
+#  ex_price      :float
+#  cgst          :float
+#  sgst          :float
+#  gst           :float
+#  onroad_price  :float
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  chase_no: MyString
+  cgst: 1.5
+  sgst: 1.5
+  gst: 1.5
+  price_wo_tax: 1.5
+  ex_price: 1.5
+  road_tax: 1.5
+  insurance: 1.5
+  registration: 1.5
+  ext_warranty: MyString
+  accessories: 1.5
+  tefflon: 1.5
+  hypothecation: 1.5
+  onroad_price: 1.5
+
+two:
+  model: MyString
+  chase_no: MyString
+  cgst: 1.5
+  sgst: 1.5
+  gst: 1.5
+  price_wo_tax: 1.5
+  ex_price: 1.5
+  road_tax: 1.5
+  insurance: 1.5
+  registration: 1.5
+  ext_warranty: MyString
+  accessories: 1.5
+  tefflon: 1.5
+  hypothecation: 1.5
+  onroad_price: 1.5

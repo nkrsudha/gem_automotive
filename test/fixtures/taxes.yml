@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: taxes
+#
+#  id         :integer          not null, primary key
+#  cgst       :float
+#  sgst       :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cgst: 1.5
+  sgst: 1.5
+
+two:
+  cgst: 1.5
+  sgst: 1.5
