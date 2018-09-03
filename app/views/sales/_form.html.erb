@@ -1,82 +1,136 @@
-<%= form_for(sale) do |f| %>
-  <% if sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <%= form_for(sale, html: {class: "form-horizontal form-label-left"}) do |f| %>
 
-      <ul>
-      <% sale.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+         <% if sale.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+              <ul>
+                <% sale.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chasis Number <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+             <%= f.text_field :chasis_no, class: "form-control col-md-7 col-xs-12" %>
+              
+            </div>
+          </div>
+          <%= f.hidden_field :show_room_id,value: current_user.show_room_id %>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Bike Model <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.select :bike_id,options_for_select(Bike.all.map {|b| [b.model,b.id]}, sale.bike_id), {:prompt => 'Select bike'},{:class => 'form-control col-md-7 col-xs-12' , required: true } %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Customer <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.select :customer_id,options_for_select(Customer.all.where(show_room_id: current_user.show_room_id).map {|c| [c.name,c.id]}, sale.customer_id), {:prompt => 'Select Customer'},{:class => 'form-control col-md-7 col-xs-12' , required: true } %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Payment Type<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.select :payment_type_id,options_for_select(PaymentType.all.map {|p| [p.name,p.id]}, sale.payment_type_id), {:prompt => 'Select Payment Type'},{:class => 'form-control col-md-7 col-xs-12' , required: true } %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Sales Type <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.select :sales_type,options_for_select([["OWN",1],["Co Dealer",2]]), {:prompt => 'Select Sales Type'},{:class => 'form-control col-md-7 col-xs-12' , required: true } %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Discount <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+               <%= f.number_field :discount, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Received Amount <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.number_field :received_amount, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Diffrence<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :diffrence, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Delivery Location<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :delivery_location, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+
+           <%= f.hidden_field :show_room_id,value: current_user.show_room_id %>
+
+           <%= f.hidden_field :user_id,value: current_user.id %>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Executive Name<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :executive_name, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Financed By<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :financed_by, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Notes<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_area :notes, class: "form-control col-md-7 col-xs-12" %>
+            </div>
+          </div>
+
+
+          
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <%= f.submit "Save", class: "btn btn-primary", disable_with: "Please wait" %>
+            </div>
+          </div>
+
+       <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :chasis_no %>
-    <%= f.text_field :chasis_no %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :bike_id %>
-    <%= f.text_field :bike_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :customer_id %>
-    <%= f.text_field :customer_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :payment_type_id %>
-    <%= f.text_field :payment_type_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :sales_type %>
-    <%= f.text_field :sales_type %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dsicount %>
-    <%= f.text_field :dsicount %>
-  </div>
-
-  <div class="field">
-    <%= f.label :received_amount %>
-    <%= f.text_field :received_amount %>
-  </div>
-
-  <div class="field">
-    <%= f.label :diffrence %>
-    <%= f.text_field :diffrence %>
-  </div>
-
-  <div class="field">
-    <%= f.label :delivery_location %>
-    <%= f.text_field :delivery_location %>
-  </div>
-
-  <div class="field">
-    <%= f.label :show_room_id %>
-    <%= f.text_field :show_room_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :executive_name %>
-    <%= f.text_field :executive_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :financed_by %>
-    <%= f.text_field :financed_by %>
-  </div>
-
-  <div class="field">
-    <%= f.label :notes %>
-    <%= f.text_field :notes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

@@ -26,4 +26,6 @@ class Sale < ApplicationRecord
   belongs_to :payment_type
   belongs_to :show_room
   belongs_to :user
+
+  #sales type 1- OWN , 2. Co dealer
 end

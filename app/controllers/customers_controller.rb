@@ -1,84 +1,80 @@
 class CustomersController < InheritedResources::Base
 	before_action :authenticate_user!
 
-	 # # GET /products
-  # # GET /products.json
-  # def index
-  #   @products = Product.all
+  def index
+    @customers = Customer.where(show_room_id: current_user.show_room_id)
 
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @products }
-  #   end
-  # end
+    respond_to do |format|
+      format.html 
+      format.json { render json: @customers }
+    end
+  end
 
-  # # GET /products/1
-  # # GET /products/1.json
+  # # GET /customers/1
+  # # GET /customers/1.json
   # def show
-  #   @product = Product.find(params[:id])
+  #   @customer = customer.find(params[:id])
 
   #   respond_to do |format|
   #     format.html # show.html.erb
-  #     format.json { render json: @product }
+  #     format.json { render json: @customer }
   #   end
   # end
 
-  # # GET /products/new
-  # # GET /products/new.json
+  # # GET /customers/new
+  # # GET /customers/new.json
   # def new
-  #   @product = Product.new
+  #   @customer = customer.new
 
   #   respond_to do |format|
   #     format.html # new.html.erb
-  #     format.json { render json: @product }
+  #     format.json { render json: @customer }
   #   end
   # end
 
-  # # GET /products/1/edit
+  # # GET /customers/1/edit
   # def edit
-  #   @product = Product.find(params[:id])
+  #   @customer = customer.find(params[:id])
   # end
 
-  # # POST /products
-  # # POST /products.json
-  # def create
-  #   @product = Product.new(params[:product])
 
-  #   respond_to do |format|
-  #     if @product.save
-  #       format.html { redirect_to @product, notice: 'Product was successfully created.' }
-  #       format.json { render json: @product, status: :created, location: @product }
-  #     else
-  #       format.html { render action: "new" }
-  #       format.json { render json: @product.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def create
+    @customer = Customer.new(customer_params)
 
-  # # PUT /products/1
-  # # PUT /products/1.json
-  # def update
-  #   @product = Product.find(params[:id])
+    respond_to do |format|
+      if @customer.save
+        format.html { redirect_to customers_path, notice: 'Customer was successfully created.' }
+        format.json { render json: @customer, status: :created, location: @customer }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  #   respond_to do |format|
-  #     if @product.update_attributes(params[:product])
-  #       format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @product.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  
+  def update
+    @customer = Customer.find(params[:id])
 
-  # # DELETE /products/1
-  # # DELETE /products/1.json
+    respond_to do |format|
+      if @customer.update_attributes(customer_params)
+        format.html { redirect_to customers_path, notice: 'Customer was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # # DELETE /customers/1
+  # # DELETE /customers/1.json
   # def destroy
-  #   @product = Product.find(params[:id])
-  #   @product.destroy
+  #   @customer = customer.find(params[:id])
+  #   @customer.destroy
 
   #   respond_to do |format|
-  #     format.html { redirect_to products_url }
+  #     format.html { redirect_to customers_url }
   #     format.json { head :no_content }
   #   end
   # end

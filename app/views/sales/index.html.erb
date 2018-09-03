@@ -1,51 +1,57 @@
+
 <p id="notice"><%= notice %></p>
+<h2>Sales List - <%= current_user.show_room.name %></h2> <%= link_to 'New Sale', new_sale_path, class: "pull-right btn btn-default" %>
+<div class="row">
+      <div class="x_content">
+        <div class="table-responsive">
+          <table class="table table-striped jambo_table bulk_action">
+            <thead>
+              <tr class="headings">
+                <th class="column-title">Chasis no</th>
+                <th class="column-title">Bike</th>
+                <th class="column-title">Customer</th>
+                <th class="column-title">Payment type</th>
+                <th class="column-title">Sales type</th>
+                <th class="column-title">Discount</th>
+                <th class="column-title">Received amount</th>
+                <th class="column-title">Diffrence</th>
+                <th class="column-title">Delivery location</th>
+                <th class="column-title">Show room</th>
+                <th class="column-title">Executive name</th>
+                <th class="column-title">Financed by</th>
+                <th class="column-title">Notes</th>
+                <th colspan="3">Actions</th>
+              </tr>
+            </thead>
 
-<h1>Sales</h1>
+            <tbody>
+              <% @sales.each do |sale| %>
+                <tr class="even_pointer">
+                  <td><%= sale.chasis_no %></td>
+                  <td><%= sale.bike.model %></td>
+                  <td><%= sale.customer.name %></td>
+                  <td><%= sale.payment_type.name %></td>
+                  <td><%= sale.sales_type == 1 ? "OWN" : "Co Dealer" %></td>
+                  <td><%= sale.discount.round(0) %></td>
+                  <td><%= sale.received_amount.round(0) %></td>
+                  <td><%= sale.diffrence.round(0) %></td>
+                  <td><%= sale.delivery_location %></td>
+                  <td><%= sale.show_room.name %></td>
+                  <td><%= sale.executive_name %></td>
+                  <td><%= sale.financed_by %></td>
+                  <td><%= sale.notes %></td>
+                  <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+                  <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Chasis no</th>
-      <th>Bike</th>
-      <th>Customer</th>
-      <th>Payment type</th>
-      <th>Sales type</th>
-      <th>Dsicount</th>
-      <th>Received amount</th>
-      <th>Diffrence</th>
-      <th>Delivery location</th>
-      <th>Show room</th>
-      <th>Executive name</th>
-      <th>Financed by</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @sales.each do |sale| %>
-      <tr>
-        <td><%= sale.chasis_no %></td>
-        <td><%= sale.bike %></td>
-        <td><%= sale.customer %></td>
-        <td><%= sale.payment_type %></td>
-        <td><%= sale.sales_type %></td>
-        <td><%= sale.dsicount %></td>
-        <td><%= sale.received_amount %></td>
-        <td><%= sale.diffrence %></td>
-        <td><%= sale.delivery_location %></td>
-        <td><%= sale.show_room %></td>
-        <td><%= sale.executive_name %></td>
-        <td><%= sale.financed_by %></td>
-        <td><%= sale.notes %></td>
-        <td><%= link_to 'Show', sale %></td>
-        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
 
-<br>
 
-<%= link_to 'New Sale', new_sale_path %>
+</div>

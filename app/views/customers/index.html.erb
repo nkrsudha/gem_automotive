@@ -1,41 +1,46 @@
 <p id="notice"><%= notice %></p>
+<h2>Customers List - <%= current_user.show_room.name %></h2>  </h2>   <%= link_to 'New Sale', new_customer_path, class: "pull-right btn btn-default" %>
+<div class="row">
+      <div class="x_content">
+        <div class="table-responsive">
+          <table class="table table-striped jambo_table bulk_action">
+            <thead>
+              <tr class="headings">
+                <th  class="column-title">Name</th>
+                <th class="column-title">Mobile</th>
+                <th class="column-title">Show room</th>
+                <th class="column-title">Id type</th>
+                <th class="column-title">Id number</th>
+                <th class="column-title">City</th>
+                <th class="column-title">Address</th>
+                <th class="column-title">Pin</th>
+                <th colspan="3" class="column-title">Actions</th>
+              </tr>
+            </thead>
 
-<h1>Customers</h1>
+            <tbody>
+              <% @customers.each do |customer| %>
+                <tr class="even_pointer">
+                  <td><%= customer.name %></td>
+                  <td><%= customer.mobile %></td>
+                  <td><%= customer.show_room.name %></td>
+                  <td><%= customer.id_type %></td>
+                  <td><%= customer.id_number %></td>
+                  <td><%= customer.city %></td>
+                  <td><%= customer.address %></td>
+                  <td><%= customer.pin %></td>
+                  <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+                  <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Mobile</th>
-      <th>Show room</th>
-      <th>Id type</th>
-      <th>Id number</th>
-      <th>City</th>
-      <th>Address</th>
-      <th>Pin</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.mobile %></td>
-        <td><%= customer.show_room %></td>
-        <td><%= customer.id_type %></td>
-        <td><%= customer.id_number %></td>
-        <td><%= customer.city %></td>
-        <td><%= customer.address %></td>
-        <td><%= customer.pin %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
 
-<br>
 
-<%= link_to 'New Customer', new_customer_path %>
+</div>
