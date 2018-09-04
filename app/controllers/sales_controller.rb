@@ -26,7 +26,7 @@ class SalesController < InheritedResources::Base
 
   
   	def update
-	    @sale = sale.find(params[:id])
+	    @sale = Sale.find(params[:id])
 
 	    respond_to do |format|
 	      if @sale.update_attributes(sale_params)

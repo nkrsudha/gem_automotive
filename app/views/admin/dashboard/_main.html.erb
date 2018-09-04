@@ -1,91 +1,62 @@
-      <div class="col-lg-3 col-md-6">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <br><i class="fa fa-building fa-4x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <h1><%= Bike.all.count %></h1>
-                  <h3>BIKES</h3>
-              </div>
-            </div>
-          </div>
-          <%= link_to admin_bikes_path do %>
-            <div class="panel-footer">
-                <span class="pull-left">View Details</span>
-                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                <div class="clearfix"></div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+<div class="columns">
 
-      <div class="col-lg-3 col-md-6 ad-box">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <br><i class="fa fa-building fa-4x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <h1><%= Sale.all.count %></h1>
-                  <h3>Sales</h3>
-              </div>
-            </div>
-          </div>
+   <div class="column" style="width: 32%; margin: 5px;">
+    <div class="panel">
+      <h3>Sales</h3>
+      <div class="panel_contents">
+        <center>
+          <h1><%= Sale.all.count %></h1>
           <%= link_to admin_sales_path do %>
-            <div class="panel-footer">
-                <span class="pull-left">View Details</span>
-                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                <div class="clearfix"></div>
-            </div>
-          <% end %>
-        </div>
+              <div class="panel-footer">
+                  <span class="pull-left">View Details</span>
+              </div>
+            <% end %>
+          </center>
       </div>
+    </div>
+  </div>
 
-      <div class="col-lg-3 col-md-6 ad-box">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <br><i class="fa fa-building fa-4x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <h1><%= Customer.all.count %></h1>
-                  <h3>Sales</h3>
-              </div>
-            </div>
-          </div>
-          <%= link_to admin_customers_path do %>
-            <div class="panel-footer">
-                <span class="pull-left">View Details</span>
-                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                <div class="clearfix"></div>
-            </div>
-          <% end %>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 ad-box">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-3">
-                <br><i class="fa fa-building fa-4x"></i>
-              </div>
-              <div class="col-xs-9 text-right">
-                  <h1>Rs : <%= Bike.all.sum(&:onroad_price) %></h1>
-                  <h3>Total Sales</h3>
-              </div>
-            </div>
-          </div>
+  <div class="column" style="width: 32%; margin: 5px;">
+    <div class="panel">
+      <h3>Bikes</h3>
+      <div class="panel_contents">
+        <center>
+          <h1><%= Bike.all.count %></h1>
           <%= link_to admin_bikes_path do %>
-            <div class="panel-footer">
-                <span class="pull-left">View Details</span>
-                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                <div class="clearfix"></div>
-            </div>
-          <% end %>
-        </div>
+              <div class="panel-footer">
+                  <span class="pull-left">View Details</span>
+              </div>
+            <% end %>
+          </center>
       </div>
+    </div>
+  </div>
+
+
+   <div class="column" style="width: 32%; margin: 5px;">
+    <div class="panel">
+      <h3>Total Sales</h3>
+      <div class="panel_contents">
+        <center>
+          <h1><%= Bike.all.sum(&:onroad_price) %></h1>
+          <%= link_to admin_bikes_path do %>
+              <div class="panel-footer">
+                  <span class="pull-left">View Details</span>
+              </div>
+            <% end %>
+          </center>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+         
+
+<div class="columns">
+  <%= column_chart Bike.all.group(:created_at).count %>
+</div>
+
+
+

@@ -230,6 +230,8 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
 
+  config.download_links = %i[csv xls]
+
   # == Download Links
   #
   # You can disable download links on resource listing pages,
@@ -295,10 +297,10 @@ ActiveAdmin.setup do |config|
 
    config.clear_stylesheets!
    config.register_stylesheet 'admin/active_admin.css'
-   config.register_stylesheet 'font-awesome.css'
+   # config.register_stylesheet 'font-awesome.css'
 
    config.clear_javascripts!
    config.register_javascript 'admin/active_admin.js'
-   config.register_javascript 'ckeditor/init.js'
    config.register_javascript 'bootstrap.js'
+   config.register_javascript 'https://www.google.com/jsapi'
 end

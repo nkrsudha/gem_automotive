@@ -9,10 +9,20 @@ permit_params :bike_id,:customer_id,:payment_type_id,:sales_type,:discount,:rece
     actions
   end
 
-  filter :name
+  filter :chasis_no
   filter :created_at
   filter :show_room
 
   actions :all, except: [:new, :delete]
+
+  csv do
+    column :chasis_no
+    column(:author) { |sale| sale.bike.model }
+  end
+  
+  config.xls_builder.only_columns :chasis_no
+  config.xls_builder.column('author_name') do |resource|
+    resource.chasis_no
+  end
 
 end

@@ -1,7 +1,7 @@
 ActiveAdmin.register Bike do
   permit_params :model,:price_wo_tax,:road_tax,:insurance,:registration,:ext_warranty,:accessories,:tefflon,:hypothecation,:ex_price,:cgst,:sgst,:onroad_price
 
-  index do
+  index  download_links: [:csv] do
     selectable_column
     id_column
     column :model
