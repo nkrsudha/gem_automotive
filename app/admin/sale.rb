@@ -17,11 +17,11 @@ permit_params :bike_id,:customer_id,:payment_type_id,:sales_type,:discount,:rece
 
   csv do
     column :chasis_no
-    column(:author) { |sale| sale.bike.model }
+    column(:model) { |sale| sale.bike.model }
   end
   
   config.xls_builder.only_columns :chasis_no
-  config.xls_builder.column('author_name') do |resource|
+  config.xls_builder.column('chasis_no') do |resource|
     resource.chasis_no
   end
 

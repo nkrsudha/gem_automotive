@@ -11,5 +11,6 @@ permit_params :name,:mobile,:show_room_id,:id_type,:id_number,:city,:address,:pi
   end
 
   filter :name
+  filter :created_at
 
 end
