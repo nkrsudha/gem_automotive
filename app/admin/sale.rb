@@ -15,14 +15,14 @@ permit_params :bike_id,:customer_id,:payment_type_id,:sales_type,:discount,:rece
 
   actions :all, except: [:new, :delete]
 
-  csv do
-    column :chasis_no
-    column(:model) { |sale| sale.bike.model }
-  end
+  # csv do
+  #   column :chasis_no
+  #   column(:model) { |sale| sale.bike.model }
+  # end
   
-  config.xls_builder.only_columns :chasis_no
-  config.xls_builder.column('chasis_no') do |resource|
-    resource.chasis_no
-  end
+  # config.xls_builder.only_columns :chasis_no
+  # config.xls_builder.column('chasis_no') do |resource|
+  #   resource.chasis_no
+  # end
 
 end
