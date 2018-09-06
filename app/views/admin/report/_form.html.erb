@@ -7,23 +7,23 @@
     <span>Generate Report</span></legend>
 
 <ol>
-<li class="email input stringish" id="user_email_input"><label for="user_email" class="label">Bike<abbr title="required">*</abbr></label>
+<li class="email input stringish" id="user_email_input"><label for="user_email" class="label">Bike</label>
 <%= select_tag :bike_id,options_for_select(Bike.all.map {|b| [b.model,b.id]}), {:prompt => 'Select bike',:class => 'form-control col-md-7 col-xs-12'  } %>
 </li>
 
-<li class="email input stringish" id="user_email_input"><label for="user_email" class="label">Show Room<abbr title="required">*</abbr></label>
-<%= select_tag :bike_id,options_for_select(ShowRoom.all.map {|s| [s.name,s.id]}), {:prompt => 'Select Show Room',:class => 'form-control col-md-7 col-xs-12'  } %>
+<li class="email input stringish" id="user_email_input"><label for="user_email" class="label">Show Room</label>
+<%= select_tag :show_room_id,options_for_select(ShowRoom.all.map {|s| [s.name,s.id]}), {:prompt => 'Select Show Room',:class => 'form-control col-md-7 col-xs-12'  } %>
 </li>
 
 
-<li class="string input stringish" id="user_name_input"><label for="user_name" class="label">From<abbr title="required">*</abbr></label>
+<li class="string input stringish" id="user_name_input"><label for="user_name" class="label">From</label>
 
 <input size="12" class="datepicker" maxlength="10" value="" name="from" type="text">
 
 </li>
 
 
-<li class="string input stringish" id="user_name_input"><label for="user_name" class="label">To<abbr title="required">*</abbr></label>
+<li class="string input stringish" id="user_name_input"><label for="user_name" class="label">To</label>
 	<input size="12" class="datepicker" maxlength="10" value="" name="to" type="text">
 </li>
 
@@ -31,7 +31,7 @@
 </fieldset>
 <fieldset class="actions">
 <ol>
-<li class="action input_action " id="user_submit_action"><input type="submit" name="commit" value="Create User" data-disable-with="Create User" />
+<li class="action input_action " id="user_submit_action"><input type="submit" name="commit" value="Generate" data-disable-with="Generate" />
 </li>
 <li class="cancel">
 <a href="/admin/dashboard">Cancel</a></li></ol>

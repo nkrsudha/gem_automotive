@@ -8,7 +8,7 @@
 #  customer_id       :integer
 #  payment_type_id   :integer
 #  sales_type        :integer
-#  dsicount          :float
+#  discount          :float
 #  received_amount   :float
 #  diffrence         :string
 #  delivery_location :string
